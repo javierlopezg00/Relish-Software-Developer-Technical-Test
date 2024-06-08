@@ -5,7 +5,7 @@ import 'dotenv/config'
 const app = express()
 app.use(express.json())
 
-//app.use(express.static('./../Frontend/dist'));
+app.use(express.static('./../Frontend/dist'));
 
 // Website allow to connect and request methods/headers allow
 app.use((req, res, next) => {
