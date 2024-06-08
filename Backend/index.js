@@ -9,7 +9,7 @@ app.use(express.static('./../Frontend/dist'));
 
 // Website allow to connect and request methods/headers allow
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', `http://localhost:5173`);
+  res.setHeader('Access-Control-Allow-Origin', `http://localhost`);
   res.setHeader('Access-Control-Allow-Methods', 'GET');
   res.setHeader('Access-Control-Allow-Headers', '*');
   next();
