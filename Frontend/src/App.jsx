@@ -12,7 +12,7 @@ function App() {
   // External API request and state setting 
   const getSongs = async (filters) => {
     try {
-      const response = await axios.get("http://localhost:3003/externalapi/photos", {
+      const response = await axios.get("https://localhost:8080/externalapi/photos", {
         params: {
           ...filters
         }
@@ -50,18 +50,64 @@ function App() {
   return (
     <>
     <div className="container">
-      <div className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-          <span className="fs-1 m-4"><strong>MetaPhoto</strong></span>
-        <form className="nav nav-pills d-flex flex-wrap justify-content-center" onSubmit={handleSubmit}>
-          <li className="nav-item m-2"><input name="title"type="text" className="form-control" placeholder="Title" onChange={handleChange} /></li>
-          <li className="nav-item m-2"><input name="album.title"type="text" className="form-control" placeholder="Album Title" onChange={handleChange}/></li>
-          <li className="nav-item m-2"><input name="album.user.email"type="email" className="form-control" placeholder="Email" onChange={handleChange}/></li>
-          <li className="nav-item m-2"><input name="offset"type="number" className="form-control" placeholder="Offset" onChange={handleChange}/></li>
-          <li className="nav-item m-2"><input name="limit"type="number" className="form-control" placeholder="Limit" onChange={handleChange}/></li>
-          <li className="nav-item m-2"><button type="submit" className="btn btn-secondary">Filter</button></li>
-        </form>
-      </div>
+  <span className="fs-1 m-4"><strong>MetaPhoto</strong></span>
+    <div className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+  <form className="nav nav-pills d-flex flex-wrap justify-content-center w-75" onSubmit={handleSubmit}>
+    <li className="nav-item m-2 w-50">
+      <input
+        name="title"
+        type="text"
+        className="form-control"
+        placeholder="Title"
+        onChange={handleChange}
+      />
+    </li>
+    <li className="nav-item m-2 w-50">
+      <input
+        name="album.title"
+        type="text"
+        className="form-control"
+        placeholder="Album Title"
+        onChange={handleChange}
+      />
+    </li>
+    <li className="nav-item m-2 w-50">
+      <input
+        name="album.user.email"
+        type="email"
+        className="form-control"
+        placeholder="Email"
+        onChange={handleChange}
+      />
+    </li>
+    <li className="nav-item m-2 w-50">
+      <input
+        name="offset"
+        type="number"
+        className="form-control"
+        placeholder="Offset"
+        onChange={handleChange}
+      />
+    </li>
+    <li className="nav-item m-2 w-50">
+      <input
+        name="limit"
+        type="number"
+        className="form-control"
+        placeholder="Limit"
+        onChange={handleChange}
+      />
+    </li>
+    <li className="nav-item m-2 w-50">
+      <button type="submit" className="btn btn-secondary w-100">
+        Filter
+      </button>
+    </li>
+  </form>
+</div>
+
       <div className="row d-flex justify-content-center">
+        <p>Songs filtered: <b>{songs ? songs.length: 0}</b></p>
       {
           songs.map((song, key) => {
             return(
