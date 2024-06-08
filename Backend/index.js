@@ -9,7 +9,7 @@ app.use(express.json())
 
 // Website allow to connect and request methods/headers allow
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', `http://172.26.10.202`);
+  res.setHeader('Access-Control-Allow-Origin', `http://localhost`);
   res.setHeader('Access-Control-Allow-Methods', 'GET');
   res.setHeader('Access-Control-Allow-Headers', '*');
   next();
