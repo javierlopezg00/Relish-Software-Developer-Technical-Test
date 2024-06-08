@@ -5,11 +5,11 @@ import 'dotenv/config'
 const app = express()
 app.use(express.json())
 
-app.use(express.static('./../Frontend/dist'));
+//app.use(express.static('./../Frontend/dist'));
 
 // Website allow to connect and request methods/headers allow
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', `http://${process.env.IP}:5173`);
+  res.setHeader('Access-Control-Allow-Origin', `http://localhost:5173`);
   res.setHeader('Access-Control-Allow-Methods', 'GET');
   res.setHeader('Access-Control-Allow-Headers', '*');
   next();
