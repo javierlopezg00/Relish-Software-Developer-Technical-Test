@@ -1,9 +1,10 @@
 import express from "express";
 import photosRouter from "./src/routes/photos.js";
+import 'dotenv/config'
 
 const app = express()
 app.use(express.json())
-const allowedOrigins = ['http://localhost:5173', 'https://metaphoto-frontend.s3.amazonaws.com'];
+const allowedOrigins = [`http://${process.env.IP}:5173`, 'https://metaphoto-frontend.s3.amazonaws.com'];
 
 
 // Website allow to connect and request methods/headers allow
@@ -18,4 +19,4 @@ app.use((req, res, next) => {
 });
 
 app.use("/externalapi", photosRouter)
-app.listen(8080, () => console.log(`Listening on port: 8080`))
+app.listen(process.env.PORT, () => console.log(`Listening on port: ${process.env.PORT}`))

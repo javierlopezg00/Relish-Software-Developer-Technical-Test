@@ -12,7 +12,7 @@ function App() {
   // External API request and state setting 
   const getSongs = async (filters) => {
     try {
-      const response = await axios.get("https://localhost:8080/externalapi/photos", {
+      const response = await axios.get("http://localhost:80/externalapi/photos", {
         params: {
           ...filters
         }
